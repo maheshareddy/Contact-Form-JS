@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Form</title>
+
+<script>
+function ValidateContactForm()
+{
+    var name = document.ContactForm.Name;
+    var email = document.ContactForm.Email;
+    var phone = document.ContactForm.Telephone;
+    
+    if (name.value == "")
+    {
+        window.alert("Please enter your name.");
+        name.focus();
+        return false;
+    }
+    
+    if (email.value == "")
+    {
+        window.alert("Please enter e-mail address.");
+        email.focus();
+        return false;
+    }
+    if (email.value.indexOf("@", 0) < 0)
+    {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+    }
+    if (email.value.indexOf(".", 0) < 0)
+    {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+    }
+    if (phone.value == "" ) 
+    {
+        window.alert("Please enter your telephone number.");
+        phone.focus();
+        return false;
+    }
+    
+    if (isNaN (phone.value))
+    {
+        window.alert("This is not a number");
+        phone.focus();
+        return false;
+    }
+    if ((phone.value).length < 10)
+    {
+        alert("Minimum 10 digits!");
+        phone.focus();
+        return false;
+    }
+    {
+        alert("Thank You");
+    }
+  
+}
+</script>
+</head>
+
+<body>
+<style> 
+
+input[type=text]:focus {
+    background-color:#dfe3ee;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit]{
+    background-color:#92b6b1;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+ input[type=reset]{
+   background-color: #87684e;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+} 
+
+div {
+    border-radius: 15px;
+    background-color:#272e34;
+    padding: 20px;
+}
+
+input[type=submit]:hover {
+    background-color:#528881;
+}
+
+input[type=reset]:hover {
+    background-color:#564b4b;
+}
+
+h1{
+    color:#929f8e;
+}
+
+label{
+   color:#929f8e; 
+}
+
+</style>
+<div>
+<form class="contact" method="post" action="#" 
+name="ContactForm" onsubmit="return ValidateContactForm();">
+    <h1>Contact Us</h1>
+    <label for="name">Name</label>
+    <input type="text"  name="Name" placeholder="Enter your name">
+
+    <label for="email">Email</label>
+    <input type="text" name="Email" placeholder="example@domain.com">
+
+    <label for="contact">Phone</label>
+    <input type="text" name="Telephone" placeholder="9999999999">
+
+  <p><input type="submit" value="Submit">
+
+    <input type="reset" value="Reset"></p>
+</form>
+</div>
+
+</body>
+</html>
